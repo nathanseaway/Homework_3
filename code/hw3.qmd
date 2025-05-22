@@ -92,4 +92,14 @@ sunscreen_summary_rounded %>%
 
 2.
 a.
-For my personal data, an affective visualization could represent the data that is displayed in my graph, but in a way that uses stylistic choices to demonstrate meaning behind the data. I think this would demonstrate differences in the mean, the standard deviation, and the general distributions of these two groups. I would want it to capture the larger skew of the no group as well as the slightly lower mean. I think I want my affective visualization to be a sort of sculptural representation of my data that plays around with literal objects to represent data. I'm thinking of using empty susncreen bottles, cut to different sizes and then paint to represent the data. 
+For my personal data, an affective visualization could represent the data that is displayed in my graph, but in a way that uses stylistic choices to demonstrate meaning behind the data. I think this would demonstrate differences in the mean, the standard deviation, and the general distributions of these two groups. I would want it to capture the larger skew of the no group as well as the slightly lower mean. I think I want my affective visualization to be a sort of sculptural representation of my data that plays around with literal objects to represent data. I'm thinking of using empty sunscreen bottles, cut to different sizes and then paint to represent the data. 
+
+b.
+
+c.
+
+d.
+My piece displays the comparison between the frequency of sunscreen application between days when I go vs don't go to the beach. It attempts to demonstrate differences in the mean frequency as well as differences in ranges as well as data clustering between these two groups. 
+My piece draws inspiration from the Dear Data Project, as it takes often literal depictions of objects or things in order to express or communicate data. My project attempts to light heartedly examine my sunscreen usage and its relation to me often going to the beach through data with a very literal sunscreen bottle.
+I worked with acrylic paint to make data points and means, physical objects such as sand and sunscreen bottles to create the background (which connects the subject matter to the data) and to display the range of data. 
+To create this piece I gathered sand from Devreux beach (the beach I most frequented during the data collection period) and glued it to a cardboard background. I then cut an empty sunscreen bottle to size for each group and used acryllic paint to paint the data points/mean.
