@@ -64,4 +64,5 @@ ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Be
   theme_minimal()
 
 ```
-
+c.
+Figure 1. Distribution and means of frequency of sunscreen application by attendance to the beach (yes or no). Green points represent sunscreen application frequency for days where beach was not attended; brown to days where it was. Graph displays means and standard deviations of sunscreen application for both groups. Data from "sunscreen_fixed.csv" by Nathan Seaway from personal experience.
