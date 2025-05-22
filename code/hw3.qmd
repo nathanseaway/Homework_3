@@ -54,10 +54,10 @@ ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Be
 #plots beach attendace on x and number applications on y; sets size and appearance/color of data points.
 
   geom_point(data = sunscreen_summary, aes(x = Beach, y = mean),
-             color = "lightgoldenrod", size = 4, inherit.aes = FALSE) #makes the mean points appear on graph +
+             color = "lightgoldenrod", size = 4, inherit.aes = FALSE)+ #makes the mean points appear on graph 
   geom_errorbar(data = sunscreen_summary,
                 aes(x = Beach, ymin = mean - sd, ymax = mean + sd),
-                width = 0.2, color = "#687", inherit.aes = FALSE)#adds error bars of means to graph. +
+                width = 0.2, color = "#687", inherit.aes = FALSE)+#adds error bars of means to graph. 
   labs(
     title = "Frequency Sunscreen Application by Beach Attendance",
     x = "Went to Beach: Yes or No",
