@@ -50,9 +50,9 @@ sd = sd(Frequency_Sunscreen_Application) #finds the means and standard deviation
 
 ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Beach)) +
   geom_jitter(width = 0.1, height = 0, size = 2, alpha = 0.7) +
-  scale_color_manual(values = c("No"= "lightgreen", "Yes"= "tan"))
+  scale_color_manual(values = c("No"= "lightgreen", "Yes"= "tan"))+
 #plots beach attendace on x and number applications on y; sets size and appearance/color of data points.
-+
+
   geom_point(data = sunscreen_summary, aes(x = Beach, y = mean),
              color = "lightgoldenrod", size = 4, inherit.aes = FALSE) #makes the mean points appear on graph +
   geom_errorbar(data = sunscreen_summary,
@@ -68,3 +68,25 @@ ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Be
 ```
 c.
 Figure 1. Distribution and means of frequency of sunscreen application by attendance to the beach (yes or no). Green points represent sunscreen application frequency for days where beach was not attended; brown to days where it was. Graph displays means and standard deviations of sunscreen application for both groups. Data from "sunscreen_fixed.csv" by Nathan Seaway from personal experience.
+
+d.
+```{r}
+library(gt)
+sunscreen_summary_rounded <- sunscreen_summary %>%
+  mutate(
+    mean = round(mean, 1),
+    sd = round(sd, 1)
+  )#rounds values in already created sunscreen summary table and makes it a new file. 
+
+sunscreen_summary_rounded %>%
+  gt() %>% #says we are using a gt table.
+  tab_header(
+    title = "Table of Sunscreen Application by Beach Attendance"
+  ) %>% #give the table the following title
+  cols_label(
+    Beach = "Went to Beach",
+    mean = "Mean Sunscreen Application",
+    sd = "Standard Deviation"
+  ) #gives the predictor variable, the mean, and the standard deviation titles new names. 
+```
+
