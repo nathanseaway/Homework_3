@@ -114,6 +114,7 @@ The authors did a decent job displaying the data from the two tests in the histo
 c.
 I think the author's did a good job handling visual clutter. They removed graph lines, minimized color usage, and avoided excessive word usage in the axis labels. Overall it makes very sleak and easy to read figures, where there is a high data to ink ratio where a lot of information is transmitted with very minimal ink.
 
-
-
+d.
+In order to improve this figure, I would recommend the author
+first adds a point or line to each histogram that represents the median of each group of fish. So there would be two lines/points added to the histogram of length one for each population median. Doing so would better demonstrate the central tendency of groups and allow the reader to see how these differ and thus how likely there is to be a statistical difference in these groups. I think this median could also include error bars for standard deviation as this relays more statistical information that was used in running their test. Additionally, I would maybe change the y-axis to "proportion of each population (%)" to make it less ambigous whether this labels describes % out of all the fish or just their population. Finally I think providing a sample size (such as n=) to each of the graphs would help the reader understand the significance of the distribution. 
 
