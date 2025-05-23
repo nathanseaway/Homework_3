@@ -106,6 +106,9 @@ To create this piece I gathered sand from Devreux beach (the beach I most freque
 
 3.
 a.
-The paper aims to determine if there are differences in recorded age, weight, and length of the species Gobio huanghensis, between two different populations: the Gansu and Ningxia sections of the Yellow River in China. A Mann-Whitney U test was used to determine if there was a significant difference in age
-between the two populations. The predictor variable was population location, either Gansu or Ningxia, and the response variable was the median age of the fish.
+The paper aims to determine if there are differences in recorded age, weight, and length of the species Gobio huanghensis, between two different populations: the Gansu and Ningxia sections of the Yellow River in China. A Mann-Whitney U test was used to determine if there was a significant difference in weight as well as length between the two populations. The predictor variable was population location, either Gansu or Ningxia, and the response variables in the two tests were the median weight of the fish and the median length. 
+
+b.
+The authors did a decent job displaying the data from the two tests in the histograms of figure 2. The distribution bins seem logically sized and the y-axis displaying proportion of population in that bin size is clear and easy to understand, additionally the groupings of the two populations by color in the graph makes it easy to read. To imrpove this figure, the authors should have displayed the medians of each group for that variable (with standard deviation) to better display the information used in the Mann-Whitney test as well as the key question of interest: difference in central tendancy. 
+
 
