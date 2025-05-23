@@ -102,4 +102,10 @@ d.
 My piece displays the comparison between the frequency of sunscreen application between days when I go vs don't go to the beach. It attempts to demonstrate differences in the mean frequency as well as differences in ranges as well as data clustering between these two groups. 
 My piece draws inspiration from the Dear Data Project, as it takes often literal depictions of objects or things in order to express or communicate data. My project attempts to light heartedly examine my sunscreen usage and its relation to me often going to the beach through data with a very literal sunscreen bottle.
 I worked with acrylic paint to make data points and means, physical objects such as sand and sunscreen bottles to create the background (which connects the subject matter to the data) and to display the range of data. 
-To create this piece I gathered sand from Devreux beach (the beach I most frequented during the data collection period) and glued it to a cardboard background. I then cut an empty sunscreen bottle to size for each group and used acryllic paint to paint the data points/mean.
+To create this piece I gathered sand from Devreux beach (the beach I most frequented during the data collection period) and glued it to a cardboard background. I then cut an empty sunscreen bottle to size for each group and used acrylic paint to paint the data points/mean.
+
+3.
+a.
+The paper aims to determine if there are differences in recorded age, weight, and length of the species Gobio huanghensis, between two different populations: the Gansu and Ningxia sections of the Yellow River in China. A Mann-Whitney U test was used to determine if there was a significant difference in age
+between the two populations. The predictor variable was population location, either Gansu or Ningxia, and the response variable was the median age of the fish.
+
