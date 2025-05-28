@@ -95,6 +95,8 @@ a.
 For my personal data, an affective visualization could represent the data that is displayed in my graph, but in a way that uses stylistic choices to demonstrate meaning behind the data. I think this would demonstrate differences in the mean, the standard deviation, and the general distributions of these two groups. I would want it to capture the larger skew of the no group as well as the slightly lower mean. I think I want my affective visualization to be a sort of sculptural representation of my data that plays around with literal objects to represent data. I'm thinking of using empty sunscreen bottles, cut to different sizes and then paint to represent the data. 
 
 b.
+![Sketch of Affective Data Visualization: Sunscreen Application](images/sketch.jpeg)
+
 
 c.
 
