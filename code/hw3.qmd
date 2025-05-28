@@ -21,7 +21,7 @@ https://github.com/nathanseaway/Homework_3.git
 ```{r setup}
 knitr::opts_chunk$set(
   echo = TRUE,       # include code
-  message = FALSE,    # hide package load messages
+  message = TRUE,    # hide package load messages
   warning = FALSE,    #hide warnings
   error = FALSE      #hide errors 
 )
