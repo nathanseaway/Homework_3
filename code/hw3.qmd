@@ -15,6 +15,9 @@ library(flextable)
 library(janitor)
 library(readxl)
 library(dplyr)
+
+sunscreen <- read.csv("../data/sunscreen_fixed.csv")
+ #reads csv file
 ```
 
 a.
@@ -23,8 +26,6 @@ To summarize my data I can take the mean of the number of times I apply sunscree
 b.
 ```{r}
 
-sunscreen <- read.csv("../data/sunscreen_fixed.csv")
- #reads csv file
 
 sunscreen <- select(sunscreen, -Date, -Steps._Day, -Days._Spring, -Max._UV, -Max._Temp) #removes all variables besides suncreen application amount and beach attendance from file.
 
