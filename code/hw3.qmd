@@ -18,13 +18,22 @@ Nathan Seaway
 
 https://github.com/nathanseaway/Homework_3.git
 
-```{r setup}
+
+```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = TRUE,       # include code
-  message = TRUE,    # hide package load messages
-  warning = FALSE,    #hide warnings
-  error = FALSE      #hide errors 
+  echo = TRUE,        # show code
+  message = FALSE,    # hide messages
+  warning = FALSE,    # hide warnings
+  error = FALSE       # suppress errors in output
 )
+
+```
+
+
+
+```{r}
+knitr::opts_chunk$set(
+  echo = TRUE)
 library(tidyverse)
 library(here)
 library(gt)
@@ -44,11 +53,6 @@ To summarize my data I can take the mean of the number of times I apply sunscree
 
 ### b.
 ```{r}
-knitr::opts_chunk$set(
-  echo = FALSE,       # hide code
-  message = FALSE,    # hide package load messages
-  warning = FALSE     # hide warnings
-)
 
 sunscreen <- select(sunscreen, -Date, -Steps._Day, -Days._Spring, -Max._UV, -Max._Temp) #removes all variables besides suncreen application amount and beach attendance from file.
 
