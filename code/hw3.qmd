@@ -10,14 +10,14 @@ format:
     theme: cosmo  # or flatly, lumen, etc.
 editor: visual
 ---
-Homework 3 Env S 193DS 
+
+Homework 3 Env S 193DS
 
 Nathan Seaway
 
 5/28/2025
 
 https://github.com/nathanseaway/Homework_3.git
-
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
@@ -28,8 +28,6 @@ knitr::opts_chunk$set(
 )
 
 ```
-
-
 
 ```{r}
 knitr::opts_chunk$set(
@@ -47,11 +45,14 @@ sunscreen <- read.csv("../data/sunscreen_fixed.csv")
  #reads csv file
 ```
 
-## Personnal Data 
+## Personnal Data
+
 ### a.
-To summarize my data I can take the mean of the number of times I apply sunscreen (response variable) compared between the two categorical groups: went to beach and did not go to beach (predictor variable). This allows me to compare the relation between going to the beach in a day and applying sunscreen, as I believe I apply sunscreen more on days when I go to the beach. 
+
+To summarize my data I can take the mean of the number of times I apply sunscreen (response variable) compared between the two categorical groups: went to beach and did not go to beach (predictor variable). This allows me to compare the relation between going to the beach in a day and applying sunscreen, as I believe I apply sunscreen more on days when I go to the beach.
 
 ### b.
+
 ```{r}
 
 sunscreen <- select(sunscreen, -Date, -Steps._Day, -Days._Spring, -Max._UV, -Max._Temp) #removes all variables besides suncreen application amount and beach attendance from file.
@@ -95,10 +96,13 @@ ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Be
   theme_minimal())#sets the theme of the graph
 
 ```
+
 ### c.
+
 Figure 1. Distribution and means of frequency of sunscreen application by attendance to the beach (yes or no). Green points represent sunscreen application frequency for days where beach was not attended; brown to days where it was. Graph displays means and standard deviations of sunscreen application for both groups. Data from "sunscreen_fixed.csv" by Nathan Seaway from personal experience.
 
 ### d.
+
 ```{r}
 knitr::opts_chunk$set(
   echo = FALSE,       # hide code
@@ -124,32 +128,37 @@ sunscreen_summary_rounded %>%
 ```
 
 ## Affective Visualization
+
 ### a.
-For my personal data, an affective visualization could represent the data that is displayed in my graph, but in a way that uses stylistic choices to demonstrate meaning behind the data. I think this would demonstrate differences in the mean, the standard deviation, and the general distributions of these two groups. I would want it to capture the larger skew of the no group as well as the slightly lower mean. I think I want my affective visualization to be a sort of sculptural representation of my data that plays around with literal objects to represent data. I'm thinking of using empty sunscreen bottles, cut to different sizes and then paint to represent the data. 
+
+For my personal data, an affective visualization could represent the data that is displayed in my graph, but in a way that uses stylistic choices to demonstrate meaning behind the data. I think this would demonstrate differences in the mean, the standard deviation, and the general distributions of these two groups. I would want it to capture the larger skew of the no group as well as the slightly lower mean. I think I want my affective visualization to be a sort of sculptural representation of my data that plays around with literal objects to represent data. I'm thinking of using empty sunscreen bottles, cut to different sizes and then paint to represent the data.
 
 ### b.
+
 ![Sketch of Affective Data Visualization: Sunscreen Application](images/sketch.jpeg)
 
+### c. 
 
-### c.
+![Sunscreen Visualization](images/visual.jpg)
 
 ### d.
-My piece displays the comparison between the frequency of sunscreen application between days when I go vs don't go to the beach. It attempts to demonstrate differences in the mean frequency as well as differences in ranges as well as data clustering between these two groups. 
-My piece draws inspiration from the Dear Data Project, as it takes often literal depictions of objects or things in order to express or communicate data. My project attempts to light heartedly examine my sunscreen usage and its relation to me often going to the beach through data with a very literal sunscreen bottle.
-I worked with acrylic paint to make data points and means, physical objects such as sand and sunscreen bottles to create the background (which connects the subject matter to the data) and to display the range of data. 
-To create this piece I gathered sand from Devreux beach (the beach I most frequented during the data collection period) and glued it to a cardboard background. I then cut an empty sunscreen bottle to size for each group and used acrylic paint to paint the data points/mean.
 
-## Statistical Critique 
+My piece displays the comparison between the frequency of sunscreen application between days when I go vs don't go to the beach. It attempts to demonstrate differences in the mean frequency as well as differences in ranges as well as data clustering between these two groups. My piece draws inspiration from the Dear Data Project, as it takes often literal depictions of objects or things in order to express or communicate data. My project attempts to light heartedly examine my sunscreen usage and its relation to me often going to the beach through data with a very literal sunscreen bottle. I worked with acrylic paint to make data points and means, physical objects such as sand and sunscreen bottles to create the background (which connects the subject matter to the data) and to display the range of data. To create this piece I gathered sand from Devreux beach (the beach I most frequented during the data collection period) and glued it to a cardboard background. I then cut an empty sunscreen bottle to size for each group and used acrylic paint to paint the data points/mean.
+
+## Statistical Critique
+
 ### a.
-The paper aims to determine if there are differences in recorded age, weight, and length of the species Gobio huanghensis, between two different populations: the Gansu and Ningxia sections of the Yellow River in China. A Mann-Whitney U test was used to determine if there was a significant difference in weight as well as length between the two populations. The predictor variable was population location, either Gansu or Ningxia, and the response variables in the two tests were the median weight of the fish and the median length. 
+
+The paper aims to determine if there are differences in recorded age, weight, and length of the species Gobio huanghensis, between two different populations: the Gansu and Ningxia sections of the Yellow River in China. A Mann-Whitney U test was used to determine if there was a significant difference in weight as well as length between the two populations. The predictor variable was population location, either Gansu or Ningxia, and the response variables in the two tests were the median weight of the fish and the median length.
 
 ### b.
+
 The authors did a decent job displaying the data from the two tests in the histograms of figure 2. The distribution bins seem logically sized and the y-axis displaying proportion of population in that bin size is clear and easy to understand, additionally the groupings of the two populations by color in the graph makes it easy to read. To improve this figure, the authors should have displayed the medians of each group for that variable (with standard deviation) to better display the information used in the Mann-Whitney test as well as the key question of interest: difference in central tendency.
 
 ### c.
+
 I think the author's did a good job handling visual clutter. They removed graph lines, minimized color usage, and avoided excessive word usage in the axis labels. Overall it makes very sleak and easy to read figures, where there is a high data to ink ratio where a lot of information is transmitted with very minimal ink.
 
 ### d.
-In order to improve this figure, I would recommend the author
-first adds a point or line to each histogram that represents the median of each group of fish. So there would be two lines/points added to the histogram of length one for each population median. Doing so would better demonstrate the central tendency of groups and allow the reader to see how these differ and thus how likely there is to be a statistical difference in these groups. I think this median could also include error bars for standard deviation as this relays more statistical information that was used in running their test. Additionally, I would maybe change the y-axis to "proportion of each population (%)" to make it less ambigous whether this labels describes % out of all the fish or just their population. Finally I think providing a sample size (such as n=) to each of the graphs would help the reader understand the significance of the distribution. 
 
+In order to improve this figure, I would recommend the author first adds a point or line to each histogram that represents the median of each group of fish. So there would be two lines/points added to the histogram of length one for each population median. Doing so would better demonstrate the central tendency of groups and allow the reader to see how these differ and thus how likely there is to be a statistical difference in these groups. I think this median could also include error bars for standard deviation as this relays more statistical information that was used in running their test. Additionally, I would maybe change the y-axis to "proportion of each population (%)" to make it less ambigous whether this labels describes % out of all the fish or just their population. Finally I think providing a sample size (such as n=) to each of the graphs would help the reader understand the significance of the distribution.
