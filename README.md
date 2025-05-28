@@ -23,6 +23,6 @@ File structure:
 ```
 
 rendered output:
-[Rendered output](file:///C:/Users/natha/OneDrive/Desktop/GitHub/Homework_3/code/hw3.html)
+[Rendered output](https://nathanseaway.github.io/Homework_3/)
 
 
