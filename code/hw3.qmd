@@ -1,6 +1,8 @@
 ---
-title: "hw3"
+Title: "Homework 3 Env S 193DS"
 format: html
+Name: Nathan Seaway
+Date: 5/28/2025
 ---
 
 https://github.com/nathanseaway/Homework_3.git
@@ -12,7 +14,7 @@ library(gt)
 library(flextable)
 library(janitor)
 library(readxl)
-
+library(dplyr)
 ```
 
 a.
@@ -20,7 +22,6 @@ To summarize my data I can take the mean of the number of times I apply sunscree
 
 b.
 ```{r}
-library(dplyr)
 
 sunscreen <- read.csv("sunscreen_fixed.csv") #reads csv file
 
@@ -71,7 +72,6 @@ Figure 1. Distribution and means of frequency of sunscreen application by attend
 
 d.
 ```{r}
-library(gt)
 sunscreen_summary_rounded <- sunscreen_summary %>%
   mutate(
     mean = round(mean, 1),
