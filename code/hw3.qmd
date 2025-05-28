@@ -7,7 +7,12 @@ Date: 5/28/2025
 
 https://github.com/nathanseaway/Homework_3.git
 
-```{r}
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = FALSE,       # hide code
+  message = FALSE,    # hide package load messages
+  warning = FALSE     # hide warnings
+)
 library(tidyverse)
 library(here)
 library(gt)
@@ -25,7 +30,11 @@ To summarize my data I can take the mean of the number of times I apply sunscree
 
 b.
 ```{r}
-
+knitr::opts_chunk$set(
+  echo = FALSE,       # hide code
+  message = FALSE,    # hide package load messages
+  warning = FALSE     # hide warnings
+)
 
 sunscreen <- select(sunscreen, -Date, -Steps._Day, -Days._Spring, -Max._UV, -Max._Temp) #removes all variables besides suncreen application amount and beach attendance from file.
 
@@ -50,7 +59,7 @@ sd = sd(Frequency_Sunscreen_Application) #finds the means and standard deviation
 )
 
 # Plot
-
+(
 ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Beach)) +
   geom_jitter(width = 0.1, height = 0, size = 2, alpha = 0.7) +
   scale_color_manual(values = c("No"= "lightgreen", "Yes"= "tan"))+
@@ -65,8 +74,8 @@ ggplot(sunscreen, aes(x = Beach, y = Frequency_Sunscreen_Application, color = Be
     title = "Frequency Sunscreen Application by Beach Attendance",
     x = "Went to Beach: Yes or No",
     y = "Frequency of Sunscreen Application"
-  ) #makes the labels of the graph.+
-  theme_minimal()#sets the theme of the graph
+  )+ #makes the labels of the graph.
+  theme_minimal())#sets the theme of the graph
 
 ```
 c.
@@ -74,6 +83,11 @@ Figure 1. Distribution and means of frequency of sunscreen application by attend
 
 d.
 ```{r}
+knitr::opts_chunk$set(
+  echo = FALSE,       # hide code
+  message = FALSE,    # hide package load messages
+  warning = FALSE     # hide warnings
+)
 sunscreen_summary_rounded <- sunscreen_summary %>%
   mutate(
     mean = round(mean, 1),
