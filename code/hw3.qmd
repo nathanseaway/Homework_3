@@ -20,9 +20,10 @@ https://github.com/nathanseaway/Homework_3.git
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE,       # hide code
+  echo = TRUE,       # include code
   message = FALSE,    # hide package load messages
-  warning = FALSE     # hide warnings
+  warning = FALSE,    #hide warnings
+  error = FALSE      #hide errors 
 )
 library(tidyverse)
 library(here)

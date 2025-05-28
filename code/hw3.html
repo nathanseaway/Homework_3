@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -78,7 +112,8 @@ ul.task-list li input[type="checkbox"] {
 
 <p>Homework 3 Env S 193DS</p>
 <p>Nathan Seaway</p>
-<p>5/28/2025 https://github.com/nathanseaway/Homework_3.git</p>
+<p>5/28/2025</p>
+<p>https://github.com/nathanseaway/Homework_3.git</p>
 <section id="personnal-data" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="personnal-data"><span class="header-section-number">1</span> Personnal Data</h2>
 <section id="a." class="level3" data-number="1.1">
@@ -88,6 +123,52 @@ ul.task-list li input[type="checkbox"] {
 <section id="b." class="level3" data-number="1.2">
 <h3 data-number="1.2" class="anchored" data-anchor-id="b."><span class="header-section-number">1.2</span> b.</h3>
 <div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span>opts_chunk<span class="sc">$</span><span class="fu">set</span>(</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">echo =</span> <span class="cn">FALSE</span>,       <span class="co"># hide code</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">message =</span> <span class="cn">FALSE</span>,    <span class="co"># hide package load messages</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">warning =</span> <span class="cn">FALSE</span>     <span class="co"># hide warnings</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>sunscreen <span class="ot">&lt;-</span> <span class="fu">select</span>(sunscreen, <span class="sc">-</span>Date, <span class="sc">-</span>Steps._Day, <span class="sc">-</span>Days._Spring, <span class="sc">-</span>Max._UV, <span class="sc">-</span>Max._Temp) <span class="co">#removes all variables besides suncreen application amount and beach attendance from file.</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>sunscreen <span class="ot">&lt;-</span> sunscreen <span class="sc">%&gt;%</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="fu">mutate</span>(<span class="at">Beach =</span> <span class="fu">recode</span>(Beach, <span class="st">"Y"</span> <span class="ot">=</span> <span class="st">"Yes"</span>, <span class="st">"N"</span> <span class="ot">=</span> <span class="st">"No"</span>)) <span class="co">#changes names of variable from y and n to yes and no.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Create summary with lowercase names</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>sunscreen_summary <span class="ot">&lt;-</span> sunscreen <span class="sc">%&gt;%</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="fu">group_by</span>(Beach) <span class="sc">%&gt;%</span> <span class="co">#groups data by beach attendance. </span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="fu">summarise</span>(</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">mean =</span> <span class="fu">mean</span>(Frequency_Sunscreen_Application),</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="at">sd =</span> <span class="fu">sd</span>(Frequency_Sunscreen_Application) <span class="co">#finds the means and standard deviation of sunscreen application by this grouping. </span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Plot</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>(</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sunscreen, <span class="fu">aes</span>(<span class="at">x =</span> Beach, <span class="at">y =</span> Frequency_Sunscreen_Application, <span class="at">color =</span> Beach)) <span class="sc">+</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>, <span class="at">height =</span> <span class="dv">0</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"No"</span><span class="ot">=</span> <span class="st">"lightgreen"</span>, <span class="st">"Yes"</span><span class="ot">=</span> <span class="st">"tan"</span>))<span class="sc">+</span></span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a><span class="co">#plots beach attendace on x and number applications on y; sets size and appearance/color of data points.</span></span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> sunscreen_summary, <span class="fu">aes</span>(<span class="at">x =</span> Beach, <span class="at">y =</span> mean),</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> <span class="st">"lightgoldenrod"</span>, <span class="at">size =</span> <span class="dv">4</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span> <span class="co">#makes the mean points appear on graph </span></span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="at">data =</span> sunscreen_summary,</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>                <span class="fu">aes</span>(<span class="at">x =</span> Beach, <span class="at">ymin =</span> mean <span class="sc">-</span> sd, <span class="at">ymax =</span> mean <span class="sc">+</span> sd),</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">color =</span> <span class="st">"#687"</span>, <span class="at">inherit.aes =</span> <span class="cn">FALSE</span>)<span class="sc">+</span><span class="co">#adds error bars of means to graph. </span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">"Frequency Sunscreen Application by Beach Attendance"</span>,</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">"Went to Beach: Yes or No"</span>,</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">"Frequency of Sunscreen Application"</span></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>  )<span class="sc">+</span> <span class="co">#makes the labels of the graph.</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>())<span class="co">#sets the theme of the graph</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -105,23 +186,23 @@ ul.task-list li input[type="checkbox"] {
 <h3 data-number="1.4" class="anchored" data-anchor-id="d."><span class="header-section-number">1.4</span> d.</h3>
 <div class="cell">
 <div class="cell-output-display">
-<div id="zykmjfpdts" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zykmjfpdts table {
+<div id="pzgojmwlzg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#pzgojmwlzg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zykmjfpdts thead, #zykmjfpdts tbody, #zykmjfpdts tfoot, #zykmjfpdts tr, #zykmjfpdts td, #zykmjfpdts th {
+#pzgojmwlzg thead, #pzgojmwlzg tbody, #pzgojmwlzg tfoot, #pzgojmwlzg tr, #pzgojmwlzg td, #pzgojmwlzg th {
   border-style: none;
 }
 
-#zykmjfpdts p {
+#pzgojmwlzg p {
   margin: 0;
   padding: 0;
 }
 
-#zykmjfpdts .gt_table {
+#pzgojmwlzg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -147,12 +228,12 @@ ul.task-list li input[type="checkbox"] {
   border-left-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_caption {
+#pzgojmwlzg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zykmjfpdts .gt_title {
+#pzgojmwlzg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -164,7 +245,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-width: 0;
 }
 
-#zykmjfpdts .gt_subtitle {
+#pzgojmwlzg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -176,7 +257,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-width: 0;
 }
 
-#zykmjfpdts .gt_heading {
+#pzgojmwlzg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -188,13 +269,13 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_bottom_border {
+#pzgojmwlzg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_col_headings {
+#pzgojmwlzg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -209,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_col_heading {
+#pzgojmwlzg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -229,7 +310,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#zykmjfpdts .gt_column_spanner_outer {
+#pzgojmwlzg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -241,15 +322,15 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 4px;
 }
 
-#zykmjfpdts .gt_column_spanner_outer:first-child {
+#pzgojmwlzg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zykmjfpdts .gt_column_spanner_outer:last-child {
+#pzgojmwlzg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zykmjfpdts .gt_column_spanner {
+#pzgojmwlzg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -261,11 +342,11 @@ ul.task-list li input[type="checkbox"] {
   width: 100%;
 }
 
-#zykmjfpdts .gt_spanner_row {
+#pzgojmwlzg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zykmjfpdts .gt_group_heading {
+#pzgojmwlzg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -291,7 +372,7 @@ ul.task-list li input[type="checkbox"] {
   text-align: left;
 }
 
-#zykmjfpdts .gt_empty_group_heading {
+#pzgojmwlzg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -306,15 +387,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: middle;
 }
 
-#zykmjfpdts .gt_from_md > :first-child {
+#pzgojmwlzg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zykmjfpdts .gt_from_md > :last-child {
+#pzgojmwlzg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zykmjfpdts .gt_row {
+#pzgojmwlzg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -333,7 +414,7 @@ ul.task-list li input[type="checkbox"] {
   overflow-x: hidden;
 }
 
-#zykmjfpdts .gt_stub {
+#pzgojmwlzg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -346,7 +427,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#zykmjfpdts .gt_stub_row_group {
+#pzgojmwlzg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -360,15 +441,15 @@ ul.task-list li input[type="checkbox"] {
   vertical-align: top;
 }
 
-#zykmjfpdts .gt_row_group_first td {
+#pzgojmwlzg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zykmjfpdts .gt_row_group_first th {
+#pzgojmwlzg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zykmjfpdts .gt_summary_row {
+#pzgojmwlzg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -378,16 +459,16 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#zykmjfpdts .gt_first_summary_row {
+#pzgojmwlzg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_first_summary_row.thick {
+#pzgojmwlzg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zykmjfpdts .gt_last_summary_row {
+#pzgojmwlzg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -397,7 +478,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_grand_summary_row {
+#pzgojmwlzg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -407,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#zykmjfpdts .gt_first_grand_summary_row {
+#pzgojmwlzg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -417,7 +498,7 @@ ul.task-list li input[type="checkbox"] {
   border-top-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_last_grand_summary_row_top {
+#pzgojmwlzg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -427,11 +508,11 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_striped {
+#pzgojmwlzg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zykmjfpdts .gt_table_body {
+#pzgojmwlzg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -440,7 +521,7 @@ ul.task-list li input[type="checkbox"] {
   border-bottom-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_footnotes {
+#pzgojmwlzg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -454,7 +535,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_footnote {
+#pzgojmwlzg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -463,7 +544,7 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#zykmjfpdts .gt_sourcenotes {
+#pzgojmwlzg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -477,7 +558,7 @@ ul.task-list li input[type="checkbox"] {
   border-right-color: #D3D3D3;
 }
 
-#zykmjfpdts .gt_sourcenote {
+#pzgojmwlzg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -485,72 +566,72 @@ ul.task-list li input[type="checkbox"] {
   padding-right: 5px;
 }
 
-#zykmjfpdts .gt_left {
+#pzgojmwlzg .gt_left {
   text-align: left;
 }
 
-#zykmjfpdts .gt_center {
+#pzgojmwlzg .gt_center {
   text-align: center;
 }
 
-#zykmjfpdts .gt_right {
+#pzgojmwlzg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zykmjfpdts .gt_font_normal {
+#pzgojmwlzg .gt_font_normal {
   font-weight: normal;
 }
 
-#zykmjfpdts .gt_font_bold {
+#pzgojmwlzg .gt_font_bold {
   font-weight: bold;
 }
 
-#zykmjfpdts .gt_font_italic {
+#pzgojmwlzg .gt_font_italic {
   font-style: italic;
 }
 
-#zykmjfpdts .gt_super {
+#pzgojmwlzg .gt_super {
   font-size: 65%;
 }
 
-#zykmjfpdts .gt_footnote_marks {
+#pzgojmwlzg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zykmjfpdts .gt_asterisk {
+#pzgojmwlzg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zykmjfpdts .gt_indent_1 {
+#pzgojmwlzg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zykmjfpdts .gt_indent_2 {
+#pzgojmwlzg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zykmjfpdts .gt_indent_3 {
+#pzgojmwlzg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zykmjfpdts .gt_indent_4 {
+#pzgojmwlzg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zykmjfpdts .gt_indent_5 {
+#pzgojmwlzg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zykmjfpdts .katex-display {
+#pzgojmwlzg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zykmjfpdts div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#pzgojmwlzg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
