@@ -23,4 +23,6 @@ File structure:
 ```
 
 rendered output:
-[here](https://github.com/nathanseaway/Homework_3.git)
+[Rendered output](https://github.com/nathanseaway/Homework_3/blob/main/code/hw3.html)
+
+

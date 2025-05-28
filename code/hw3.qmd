@@ -18,7 +18,7 @@ Nathan Seaway
 
 https://github.com/nathanseaway/Homework_3.git
 
-```{r setup, include=FALSE}
+```{r setup, include=TRUE}
 knitr::opts_chunk$set(
   echo = TRUE,       # include code
   message = FALSE,    # hide package load messages
@@ -32,6 +32,7 @@ library(flextable)
 library(janitor)
 library(readxl)
 library(dplyr)
+library(ggplot2)
 
 sunscreen <- read.csv("../data/sunscreen_fixed.csv")
  #reads csv file
@@ -55,7 +56,6 @@ sunscreen <- sunscreen %>%
 
 mutate(Beach = recode(Beach, "Y" = "Yes", "N" = "No")) #changes names of variable from y and n to yes and no.
 
-library(ggplot2)
 
 # Create summary with lowercase names
 
