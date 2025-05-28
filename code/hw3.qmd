@@ -18,7 +18,7 @@ Nathan Seaway
 
 https://github.com/nathanseaway/Homework_3.git
 
-```{r setup, include=TRUE}
+```{r setup}
 knitr::opts_chunk$set(
   echo = TRUE,       # include code
   message = FALSE,    # hide package load messages
