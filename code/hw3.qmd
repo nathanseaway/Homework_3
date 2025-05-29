@@ -135,11 +135,11 @@ For my personal data, an affective visualization could represent the data that i
 
 ### b.
 
-![Sketch of data idea](images/sketch.jpeg)
+![Sketch of Affective Data Visualization: Sunscreen Application](../images/sketch.jpeg)
 
 ### c.
 
-![sunscreen visualization](images/visual.jpg)
+![Sunscreen Visualization](../images/visual.jpg)
 
 ### d.
 
